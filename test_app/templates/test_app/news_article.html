@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+{% extends "test_app/base.html" %}
+{% block title %}Article ID: {{ article.id }}{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm">
+            <h3>{{ article.title }}</h3>
+            <p>{{ article.text }}</p>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>
