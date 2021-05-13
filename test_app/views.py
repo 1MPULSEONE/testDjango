@@ -24,4 +24,4 @@ def about(request):
 
 def get_article(request, article_id):
     article = articles[article_id - 1]
-    return render(request, 'test_app/news_article.html', {'article': articleп})
+    return render(request, 'test_app/news_article.html', {'article': article})
