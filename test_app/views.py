@@ -1,4 +1,7 @@
+from django.http import HttpResponseNotFound
 from django.shortcuts import render
+
+from test_app.models import Article
 
 articles = [
     {
@@ -15,6 +18,7 @@ articles = [
 
 # Create your views here.
 def index(request):
+    articles = Article.objects.all()
     return render(request, 'test_app/news_list.html', {'articles': articles})
 
 
@@ -23,5 +27,8 @@ def about(request):
 
 
 def get_article(request, article_id):
-    article = articles[article_id - 1]
+    try:
+        article = Article.objects.get(id=article_id)
+    except Article.DoesNotExist:
+        return HttpResponseNotFound()
     return render(request, 'test_app/news_article.html', {'article': article})
