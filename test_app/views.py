@@ -27,8 +27,4 @@ def about(request):
 
 
 def get_article(request, article_id):
-    try:
-        article = Article.objects.get(id=article_id)
-    except Article.DoesNotExist:
-        return HttpResponseNotFound()
-    return render(request, 'test_app/news_article.html', {'article': article})
+    return render(request, 'test_app/news_article.html', {'article': articles})
